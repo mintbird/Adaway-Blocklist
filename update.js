@@ -46,13 +46,13 @@ const getScript = (url) => {
 
 // Clear list file
 fs.truncate(listfile, 0, function () {
-	console.log("done");
+	console.log("Clear list file");
 });
 
 // Download list
 ((urls) => {
 	Promise.all(urls.map((url) => getScript(url))).then((values) => {
-		console.log("finish", values.length);
+		console.log("Finish download list", values.length);
 
 		// Start with string
 		let rawlist = values.join("\n");
